@@ -14,7 +14,7 @@ def lambda_handler(event, context):
     copy_src = {'Bucket':src_bucket, 'Key':key}
     
     try:
-        print("waiting for the file persist in the source bucket")
+        print("waiting for the file to persist in the source bucket")
         waiter = s3.get_waiter('object_exists')
         waiter.wait(Bucket= src_bucket, Key= key)
         print("copying the object from the source s3 bucket to destination s3 bucket")
